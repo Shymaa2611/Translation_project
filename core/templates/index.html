@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <title>Translation</title>
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+   </head>
+   <style>
+      p {font-size: 20px} 
+      h1{text-align: center;}
+      body{
+         background-color:black;
+      }
+   
+   </style>
+   <body>
+      <div class="container">
+         <h1 class="mt-5 mb-5" style="color: beige;">Translate App</h1>
+         <form method="POST" action="{% url 'trans' %}">
+            {% csrf_token %}
+            <div class="form-row mt-4">
+               <div class="col">
+                  <textarea type="text" name="txt" class="form-control" placeholder="Enter Your Text" rows="10"  required="required" ></textarea>
+               </div>
+               <div class="col" style="margin-right: 100px;">
+                  <select id="inputState" class="form-control" name="lang" >
+                     <option selected value="en">English</option>
+                     <option value="ar">Arabic</option>
+                     <option value="es">Spanish</option>
+                     <option value="fr">Frensh</option>
+                     <option value="de">German</option>
+                     <option value="zh-cn">Chinese</option>
+                     <option value="el">greek</option>
+                     <option value="hi">hindi</option>
+                     <option value="cy">welsh</option>
+                     <option value="tr">turkish</option>
+                     <option value="yo">yoruba</option>
+                  </select>
+               </div>
+            </div>
+            <button type="submit" class="btn btn-primary mt-2" style="background-color: brown; border-radius:25px ; width: 200px; margin-left:150px ; margin-top:30px ;">Translate</button>
+         </form>
+        
+            <textarea type="text" name="txt" class="form-control" placeholder="Enter Your Text" rows="9"  required="required" style="width: 500px; margin-top: 20px;">{{result}}</textarea>
+      
+      </div>
+   </body>
+</html>
+
